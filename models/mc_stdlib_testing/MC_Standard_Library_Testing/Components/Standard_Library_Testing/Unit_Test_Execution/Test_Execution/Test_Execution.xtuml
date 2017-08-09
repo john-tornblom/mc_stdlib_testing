@@ -1,0 +1,106 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("c5df6c1b-5288-47b9-8d66-560477f64d12",
+	'Test_Execution',
+	4,
+	'Test_Execution',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("e7ad3990-0e8b-41ff-bc42-78658f504099",
+	"c5df6c1b-5288-47b9-8d66-560477f64d12",
+	'Schedule_My_Test_Suite',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'create object instance suite_execution of Suite_Execution;
+relate suite_execution to self across R2;
+suite_execution.Register(name: "MC_Standard_Library_Testing", description: "");
+
+create event instance launch_file_system_case of File_System1:Launched() to File_System creator;
+suite_execution.Register_Action(action: launch_file_system_case, name: "File_System", description: "");
+
+create event instance launch_logging_case of Logging1:Launched() to Logging creator;
+suite_execution.Register_Action(action: launch_logging_case, name: "Logging", description: "");
+
+create event instance launch_process_control_case of Process_Control1:Launched() to Process_Control creator;
+suite_execution.Register_Action(action: launch_process_control_case, name: "Process_Control", description: "");
+
+create event instance launch_string_case of String1:Launched() to String creator;
+suite_execution.Register_Action(action: launch_string_case, name: "String", description: "");
+
+Execution::Schedule(suite_id: suite_execution.id);
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("2e9b8e80-98d6-4b7d-9b55-53785dd710fe",
+	"c5df6c1b-5288-47b9-8d66-560477f64d12");
+INSERT INTO O_BATTR
+	VALUES ("2e9b8e80-98d6-4b7d-9b55-53785dd710fe",
+	"c5df6c1b-5288-47b9-8d66-560477f64d12");
+INSERT INTO O_ATTR
+	VALUES ("2e9b8e80-98d6-4b7d-9b55-53785dd710fe",
+	"c5df6c1b-5288-47b9-8d66-560477f64d12",
+	"00000000-0000-0000-0000-000000000000",
+	'id',
+	'',
+	'',
+	'id',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000005",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("a28d2305-550e-494f-aa03-c8f9ce27cc83",
+	"c5df6c1b-5288-47b9-8d66-560477f64d12");
+INSERT INTO O_BATTR
+	VALUES ("a28d2305-550e-494f-aa03-c8f9ce27cc83",
+	"c5df6c1b-5288-47b9-8d66-560477f64d12");
+INSERT INTO O_ATTR
+	VALUES ("a28d2305-550e-494f-aa03-c8f9ce27cc83",
+	"c5df6c1b-5288-47b9-8d66-560477f64d12",
+	"2e9b8e80-98d6-4b7d-9b55-53785dd710fe",
+	'name',
+	'',
+	'',
+	'name',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (0,
+	"c5df6c1b-5288-47b9-8d66-560477f64d12");
+INSERT INTO O_OIDA
+	VALUES ("2e9b8e80-98d6-4b7d-9b55-53785dd710fe",
+	"c5df6c1b-5288-47b9-8d66-560477f64d12",
+	0,
+	'id');
+INSERT INTO O_ID
+	VALUES (1,
+	"c5df6c1b-5288-47b9-8d66-560477f64d12");
+INSERT INTO O_OIDA
+	VALUES ("a28d2305-550e-494f-aa03-c8f9ce27cc83",
+	"c5df6c1b-5288-47b9-8d66-560477f64d12",
+	1,
+	'name');
+INSERT INTO O_ID
+	VALUES (2,
+	"c5df6c1b-5288-47b9-8d66-560477f64d12");
+INSERT INTO PE_PE
+	VALUES ("c5df6c1b-5288-47b9-8d66-560477f64d12",
+	1,
+	"61e575cc-c53a-4db2-9439-4d960a7ca370",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("61e575cc-c53a-4db2-9439-4d960a7ca370",
+	"00000000-0000-0000-0000-000000000000",
+	"84947f4f-ad1a-40b8-86b3-2e04afbe6a0c",
+	'Unit_Test_Execution',
+	'',
+	0,
+	'../Unit_Test_Execution.xtuml');

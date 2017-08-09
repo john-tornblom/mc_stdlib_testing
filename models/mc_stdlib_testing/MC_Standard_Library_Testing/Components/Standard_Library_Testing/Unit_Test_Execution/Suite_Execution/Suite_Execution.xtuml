@@ -1,0 +1,132 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("09fc0ef3-36e7-4774-a5ba-6d2ba83d53cc",
+	'Suite_Execution',
+	2,
+	'Suite_Execution',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("fa1d59ca-d5ac-4b8a-9008-55f832500795",
+	"09fc0ef3-36e7-4774-a5ba-6d2ba83d53cc",
+	'Register_Action',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'create object instance case_execution of Case_Execution;
+case_execution.action = param.action;
+relate case_execution to self across R1;
+Registration::Register_Test_Case(suite_id: self.id, case_id:
+								 case_execution.id, name: param.name, 
+								 description: param.description);
+',
+	1,
+	'',
+	"7219ea00-608f-4925-9c97-cbc29dad2589");
+INSERT INTO O_TPARM
+	VALUES ("a10e4faa-c375-440c-bae4-ca5f9655f69f",
+	"fa1d59ca-d5ac-4b8a-9008-55f832500795",
+	'action',
+	"ba5eda7a-def5-0000-0000-00000000000a",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("d1682dfe-3306-410b-ae67-417c9e0a3c85",
+	"fa1d59ca-d5ac-4b8a-9008-55f832500795",
+	'name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"a10e4faa-c375-440c-bae4-ca5f9655f69f",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("02a4ea1a-dd31-4fee-aa83-faa68eb98532",
+	"fa1d59ca-d5ac-4b8a-9008-55f832500795",
+	'description',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"d1682dfe-3306-410b-ae67-417c9e0a3c85",
+	'');
+INSERT INTO O_TFR
+	VALUES ("7219ea00-608f-4925-9c97-cbc29dad2589",
+	"09fc0ef3-36e7-4774-a5ba-6d2ba83d53cc",
+	'Register',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'Registration::Register_Test_Suite(suite_id: self.id, 
+									   name: param.name, 
+									   description: param.description);
+
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TPARM
+	VALUES ("3c07c978-bb7e-4889-af5b-a110fa8dda08",
+	"7219ea00-608f-4925-9c97-cbc29dad2589",
+	'name',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TPARM
+	VALUES ("414a6ccf-67fb-48a1-9649-f54b8bb05cab",
+	"7219ea00-608f-4925-9c97-cbc29dad2589",
+	'description',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"3c07c978-bb7e-4889-af5b-a110fa8dda08",
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("8d0e1441-771b-45ba-90a2-ddcfc19d91b5",
+	"09fc0ef3-36e7-4774-a5ba-6d2ba83d53cc");
+INSERT INTO O_BATTR
+	VALUES ("8d0e1441-771b-45ba-90a2-ddcfc19d91b5",
+	"09fc0ef3-36e7-4774-a5ba-6d2ba83d53cc");
+INSERT INTO O_ATTR
+	VALUES ("8d0e1441-771b-45ba-90a2-ddcfc19d91b5",
+	"09fc0ef3-36e7-4774-a5ba-6d2ba83d53cc",
+	"00000000-0000-0000-0000-000000000000",
+	'id',
+	'',
+	'',
+	'id',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000005",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (2,
+	"09fc0ef3-36e7-4774-a5ba-6d2ba83d53cc");
+INSERT INTO O_ID
+	VALUES (1,
+	"09fc0ef3-36e7-4774-a5ba-6d2ba83d53cc");
+INSERT INTO O_ID
+	VALUES (0,
+	"09fc0ef3-36e7-4774-a5ba-6d2ba83d53cc");
+INSERT INTO O_OIDA
+	VALUES ("8d0e1441-771b-45ba-90a2-ddcfc19d91b5",
+	"09fc0ef3-36e7-4774-a5ba-6d2ba83d53cc",
+	0,
+	'id');
+INSERT INTO PE_PE
+	VALUES ("09fc0ef3-36e7-4774-a5ba-6d2ba83d53cc",
+	1,
+	"61e575cc-c53a-4db2-9439-4d960a7ca370",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("61e575cc-c53a-4db2-9439-4d960a7ca370",
+	"00000000-0000-0000-0000-000000000000",
+	"84947f4f-ad1a-40b8-86b3-2e04afbe6a0c",
+	'Unit_Test_Execution',
+	'',
+	0,
+	'../Unit_Test_Execution.xtuml');

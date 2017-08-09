@@ -1,0 +1,124 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("4e6cad32-842c-47bf-92aa-813962bfcf18",
+	'Process_Control',
+	2,
+	'Process_Control',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("bfd0b1a6-e285-4dad-9ca5-7d3c24f26bd2",
+	"4e6cad32-842c-47bf-92aa-813962bfcf18",
+	'Test_Termination',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'Assertion::Assert(value: False, msg: "ensure that PROC::Exit terminates the currently running process");
+Assertion::Assert(value: False, msg: "ensure that PROC::Assert terminates the currently running process");
+',
+	1,
+	'',
+	"5ce99edd-a22f-4861-80e0-36755464b4ac");
+INSERT INTO O_TFR
+	VALUES ("5ce99edd-a22f-4861-80e0-36755464b4ac",
+	"4e6cad32-842c-47bf-92aa-813962bfcf18",
+	'Test_Environment_Variable',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'Assertion::Is_True(value: PROC::Set_Env_Var(name: "Test_Environment_Variable", value: ""),
+				   msg: "setting Test_Environment_Variable to an empty string");
+
+Assertion::String_Equal(actual: PROC::Get_Env_Var(name: "Test_Environment_Variable"),
+					    expected: "",
+						msg: "Test_Environment_Variable is an empty string");
+
+Assertion::Is_True(value: PROC::Set_Env_Var(name: "Test_Environment_Variable", value: "some value"),
+				   msg: "setting Test_Environment_Variable to ''some value''");
+
+Assertion::String_Equal(actual: PROC::Get_Env_Var(name: "Test_Environment_Variable"),
+						expected: "some value",
+						msg: "Test_Environment_Variable is ''some value''");
+
+Assertion::Is_True(value: PROC::Get_Env_Var(name: "USER") != "",
+				   msg: "USER is not the empty string");
+',
+	1,
+	'',
+	"0a4c7525-102e-4c73-8c14-fbbe178d3fd3");
+INSERT INTO O_TFR
+	VALUES ("0a4c7525-102e-4c73-8c14-fbbe178d3fd3",
+	"4e6cad32-842c-47bf-92aa-813962bfcf18",
+	'Test_Argument',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'Assertion::Is_True(value: PROC::Get_Argument_Count() > 0,
+				   msg: "number of arguments is greater than zero");
+
+Assertion::Is_True(value: PROC::Get_Argument(index: 0) != "",
+				   msg: "first argument contains a non-empty string");
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("4d840264-4df8-439c-a977-bf78d6b7fd49",
+	"4e6cad32-842c-47bf-92aa-813962bfcf18",
+	'Test_System',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'Assertion::Integer_Equal(actual: PROC::System(command: "true"),
+						 expected: 0, 
+				  		 msg: "invoking the OS command ''true''");
+			
+Assertion::Integer_Equal(actual: PROC::System(command: "false"),
+						 expected: 1, 
+						 msg: "invoking the OS command ''false''");
+',
+	1,
+	'',
+	"bfd0b1a6-e285-4dad-9ca5-7d3c24f26bd2");
+INSERT INTO O_NBATTR
+	VALUES ("2005d46e-a116-4b6f-9a11-8b3267657a5c",
+	"4e6cad32-842c-47bf-92aa-813962bfcf18");
+INSERT INTO O_BATTR
+	VALUES ("2005d46e-a116-4b6f-9a11-8b3267657a5c",
+	"4e6cad32-842c-47bf-92aa-813962bfcf18");
+INSERT INTO O_ATTR
+	VALUES ("2005d46e-a116-4b6f-9a11-8b3267657a5c",
+	"4e6cad32-842c-47bf-92aa-813962bfcf18",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (2,
+	"4e6cad32-842c-47bf-92aa-813962bfcf18");
+INSERT INTO O_ID
+	VALUES (1,
+	"4e6cad32-842c-47bf-92aa-813962bfcf18");
+INSERT INTO O_ID
+	VALUES (0,
+	"4e6cad32-842c-47bf-92aa-813962bfcf18");
+INSERT INTO PE_PE
+	VALUES ("4e6cad32-842c-47bf-92aa-813962bfcf18",
+	1,
+	"cf3eb296-b101-4fad-84b0-98659d556061",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("cf3eb296-b101-4fad-84b0-98659d556061",
+	"00000000-0000-0000-0000-000000000000",
+	"84947f4f-ad1a-40b8-86b3-2e04afbe6a0c",
+	'My_Test_Suite',
+	'',
+	0,
+	'../My_Test_Suite.xtuml');

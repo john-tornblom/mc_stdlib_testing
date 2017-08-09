@@ -1,0 +1,164 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("c91e5e60-4fde-4a8c-a45a-691c1f7ce88e",
+	'Logging',
+	4,
+	'Logging',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("c9912238-3e48-4128-bc45-52f6f95d95da",
+	"c91e5e60-4fde-4a8c-a45a-691c1f7ce88e",
+	'Test_Log_To_File',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'filename = "Test_Log_To_File.log";
+
+fd = FS::Open(filename: filename, mode: File_Mode::Write);
+Assertion::Is_True(value: fd != ILLEGAL_FILE_DESCRIPTOR,
+				   msg: "opening the file " +  filename + " for writing");
+
+Log::Configure(fd: fd, level: Log_Level::Debug);
+Log::Fatal    (msg: "Fatal message 1");
+Log::Critical (msg: "Critical message 1");
+Log::Error    (msg: "Error message 1");
+Log::Warning  (msg: "Warning message 1");
+Log::Notice   (msg: "Notice message 1");
+Log::Info     (msg: "Info message 1");
+Log::Debug    (msg: "Debug message 1");
+
+Log::Configure(fd: fd, level: Log_Level::Info);
+Log::Debug    (msg: "Debug message 2");
+
+Log::Configure(fd: fd, level: Log_Level::Notice);
+Log::Info     (msg: "Info message 2");
+
+Log::Configure(fd: fd, level: Log_Level::Warning);
+Log::Notice   (msg: "Notice message 2");
+
+Log::Configure(fd: fd, level: Log_Level::Error);
+Log::Warning  (msg: "Warning message 2");
+
+Log::Configure(fd: fd, level: Log_Level::Critical);
+Log::Error    (msg: "Error message 2");
+
+Log::Configure(fd: fd, level: Log_Level::Fatal);
+Log::Critical (msg: "Critical message 2");
+
+Log::Configure(fd: fd, level: Log_Level::Silent);
+Log::Fatal    (msg: "Fatal message 2");
+
+Assertion::Is_True(value: FS::Close(fd: fd),
+				   msg: "closing the file " +  filename + " after writing");
+			 
+fd = FS::Open(filename: filename, mode: File_Mode::Read);
+Assertion::Is_True(value: fd != ILLEGAL_FILE_DESCRIPTOR,
+				   msg: "opening the file " +  filename + " for reading");
+
+str = FS::Read(fd: fd, length: -1);
+Assertion::Is_True(value: str != "",
+				   msg: "reading from the file " +  filename);
+			 
+Assertion::Is_True(value: FS::Close(fd: fd),
+				   msg: "closing the file " +  filename + " after reading");
+
+Assertion::Is_True(value: FS::Remove(filename: filename),
+				   msg: "removing the file " +  filename);
+
+//
+//
+//
+
+Assertion::Is_True(value: STR::Contains(str: str, sub: "Fatal message 1"),
+				   msg: "logging fatal message to file");
+
+Assertion::Is_True(value: STR::Contains(str: str, sub: "Critical message 1"),
+				   msg: "logging critical message to file");
+
+Assertion::Is_True(value: STR::Contains(str: str, sub: "Error message 1"),
+				   msg: "logging error message to file");
+
+Assertion::Is_True(value: STR::Contains(str: str, sub: "Warning message 1"),
+				   msg: "logging warning message to file");
+
+Assertion::Is_True(value: STR::Contains(str: str, sub: "Notice message 1"),
+				   msg: "logging notice message to file");
+
+Assertion::Is_True(value: STR::Contains(str: str, sub: "Info message 1"),
+				   msg: "logging info message to file");
+
+Assertion::Is_True(value: STR::Contains(str: str, sub: "Debug message 1"),
+				   msg: "logging info message to file");
+
+//
+//
+//
+
+Assertion::Is_False(value: STR::Contains(str: str, sub: "Fatal message 2"),
+					msg: "supressing logging fatal message to file");
+
+Assertion::Is_False(value: STR::Contains(str: str, sub: "Critical message 2"),
+					msg: "supressing logging critical message to file");
+
+Assertion::Is_False(value: STR::Contains(str: str, sub: "Error message 2"),
+					msg: "supressing logging error message to file");
+
+Assertion::Is_False(value: STR::Contains(str: str, sub: "Warning message 2"),
+					msg: "supressing logging warning message to file");
+
+Assertion::Is_False(value: STR::Contains(str: str, sub: "Notice message 2"),
+					msg: "supressing logging notice message to file");
+
+Assertion::Is_False(value: STR::Contains(str: str, sub: "Info message 2"),
+					msg: "supressing logging info message to file");
+
+Assertion::Is_False(value: STR::Contains(str: str, sub: "Debug message 2"),
+					msg: "supressing logging info message to file");
+
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("a84656d7-d9ee-44b8-bc35-dac5ab475a5e",
+	"c91e5e60-4fde-4a8c-a45a-691c1f7ce88e");
+INSERT INTO O_BATTR
+	VALUES ("a84656d7-d9ee-44b8-bc35-dac5ab475a5e",
+	"c91e5e60-4fde-4a8c-a45a-691c1f7ce88e");
+INSERT INTO O_ATTR
+	VALUES ("a84656d7-d9ee-44b8-bc35-dac5ab475a5e",
+	"c91e5e60-4fde-4a8c-a45a-691c1f7ce88e",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (2,
+	"c91e5e60-4fde-4a8c-a45a-691c1f7ce88e");
+INSERT INTO O_ID
+	VALUES (1,
+	"c91e5e60-4fde-4a8c-a45a-691c1f7ce88e");
+INSERT INTO O_ID
+	VALUES (0,
+	"c91e5e60-4fde-4a8c-a45a-691c1f7ce88e");
+INSERT INTO PE_PE
+	VALUES ("c91e5e60-4fde-4a8c-a45a-691c1f7ce88e",
+	1,
+	"cf3eb296-b101-4fad-84b0-98659d556061",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("cf3eb296-b101-4fad-84b0-98659d556061",
+	"00000000-0000-0000-0000-000000000000",
+	"84947f4f-ad1a-40b8-86b3-2e04afbe6a0c",
+	'My_Test_Suite',
+	'',
+	0,
+	'../My_Test_Suite.xtuml');

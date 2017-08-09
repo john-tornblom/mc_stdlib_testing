@@ -1,0 +1,170 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("9155d0ba-5dc9-457c-b522-0ac7ad36f2a1",
+	'Incomplete_Test_Result',
+	6,
+	'Incomplete_Test_Result',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("51032aa0-bd89-4aae-ad66-2d3a851a62d2",
+	"9155d0ba-5dc9-457c-b522-0ac7ad36f2a1",
+	'Open',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000001",
+	1,
+	'select one test_result related by self->Test_Result[R4];
+self.fd = FS::Open(filename: test_result.filename, mode: File_Mode::Write);
+if(self.fd == ILLEGAL_FILE_DESCRIPTOR)
+	Log::Error(msg: "unable to open " + test_result.filename);
+	return false;
+else
+	return true;
+end if;
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("7a30a14f-ad78-4038-81ef-b35a8403a698",
+	"9155d0ba-5dc9-457c-b522-0ac7ad36f2a1",
+	'Append',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'if not FS::Write(fd: self.fd, str: param.data)
+	select one test_result related by self->Test_Result[R4];
+	Log::Error(msg: "cannot write test result data to " + test_result.filename);
+end if;',
+	1,
+	'',
+	"51032aa0-bd89-4aae-ad66-2d3a851a62d2");
+INSERT INTO O_TPARM
+	VALUES ("ef77ce63-72d2-4c7e-9a3c-171a6ef2fb3b",
+	"7a30a14f-ad78-4038-81ef-b35a8403a698",
+	'data',
+	"ba5eda7a-def5-0000-0000-000000000004",
+	0,
+	'',
+	"00000000-0000-0000-0000-000000000000",
+	'');
+INSERT INTO O_TFR
+	VALUES ("1160596a-5781-487f-9768-500d5b304f0e",
+	"9155d0ba-5dc9-457c-b522-0ac7ad36f2a1",
+	'Close',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'if not FS::Close(fd: self.fd)
+	select one test_result related by self->Test_Result[R4];
+	Log::Error(msg: "cannot close test results file " + test_result.filename);
+end if;
+',
+	1,
+	'',
+	"7a30a14f-ad78-4038-81ef-b35a8403a698");
+INSERT INTO O_REF
+	VALUES ("9155d0ba-5dc9-457c-b522-0ac7ad36f2a1",
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db",
+	0,
+	"f30c6b0c-692b-4cf8-a99f-551ff7025a19",
+	"b52f6392-e0ea-4f6f-813f-09e99074ea54",
+	"cb5ef1bf-30c6-4c15-995c-adbaa76538b4",
+	"cd82a54e-4157-48e7-b3a8-7cc881636165",
+	"d5c91299-71c1-4678-992a-0af8dc563379",
+	"9d9df6ef-313f-445e-92e5-8b7ef68de1e5",
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'Test_Result',
+	'id',
+	'R4');
+INSERT INTO R_RGO_PROXY
+	VALUES ("9155d0ba-5dc9-457c-b522-0ac7ad36f2a1",
+	"b52f6392-e0ea-4f6f-813f-09e99074ea54",
+	"cb5ef1bf-30c6-4c15-995c-adbaa76538b4",
+	'../Unit_Test_Execution.xtuml');
+INSERT INTO O_RTIDA_PROXY
+	VALUES ("f30c6b0c-692b-4cf8-a99f-551ff7025a19",
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db",
+	0,
+	"b52f6392-e0ea-4f6f-813f-09e99074ea54",
+	"cd82a54e-4157-48e7-b3a8-7cc881636165",
+	'../Unit_Test_Execution.xtuml');
+INSERT INTO O_RATTR
+	VALUES ("d5c91299-71c1-4678-992a-0af8dc563379",
+	"9155d0ba-5dc9-457c-b522-0ac7ad36f2a1",
+	"f30c6b0c-692b-4cf8-a99f-551ff7025a19",
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db",
+	1,
+	'id');
+INSERT INTO O_BATTR_PROXY
+	VALUES ("f30c6b0c-692b-4cf8-a99f-551ff7025a19",
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db",
+	'../Test_Result/Test_Result.xtuml');
+INSERT INTO O_ATTR
+	VALUES ("d5c91299-71c1-4678-992a-0af8dc563379",
+	"9155d0ba-5dc9-457c-b522-0ac7ad36f2a1",
+	"00000000-0000-0000-0000-000000000000",
+	'id',
+	'',
+	'',
+	'id',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000007",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("affe573f-907e-4806-9814-d611864eb75c",
+	"9155d0ba-5dc9-457c-b522-0ac7ad36f2a1");
+INSERT INTO O_BATTR
+	VALUES ("affe573f-907e-4806-9814-d611864eb75c",
+	"9155d0ba-5dc9-457c-b522-0ac7ad36f2a1");
+INSERT INTO O_ATTR
+	VALUES ("affe573f-907e-4806-9814-d611864eb75c",
+	"9155d0ba-5dc9-457c-b522-0ac7ad36f2a1",
+	"d5c91299-71c1-4678-992a-0af8dc563379",
+	'fd',
+	'',
+	'',
+	'fd',
+	0,
+	"1507374d-4668-4da6-9729-aa71f4a270af",
+	'',
+	'');
+INSERT INTO S_DT_PROXY
+	VALUES ("1507374d-4668-4da6-9729-aa71f4a270af",
+	"00000000-0000-0000-0000-000000000000",
+	'File_Descriptor',
+	'',
+	'',
+	'../../../../../../../../mc_stdlib/models/mc_stdlib/MC_Standard_Library/MC_Standard_Library.xtuml');
+INSERT INTO O_ID
+	VALUES (0,
+	"9155d0ba-5dc9-457c-b522-0ac7ad36f2a1");
+INSERT INTO O_OIDA
+	VALUES ("d5c91299-71c1-4678-992a-0af8dc563379",
+	"9155d0ba-5dc9-457c-b522-0ac7ad36f2a1",
+	0,
+	'id');
+INSERT INTO O_ID
+	VALUES (1,
+	"9155d0ba-5dc9-457c-b522-0ac7ad36f2a1");
+INSERT INTO O_ID
+	VALUES (2,
+	"9155d0ba-5dc9-457c-b522-0ac7ad36f2a1");
+INSERT INTO PE_PE
+	VALUES ("9155d0ba-5dc9-457c-b522-0ac7ad36f2a1",
+	1,
+	"61e575cc-c53a-4db2-9439-4d960a7ca370",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("61e575cc-c53a-4db2-9439-4d960a7ca370",
+	"00000000-0000-0000-0000-000000000000",
+	"84947f4f-ad1a-40b8-86b3-2e04afbe6a0c",
+	'Unit_Test_Execution',
+	'',
+	0,
+	'../Unit_Test_Execution.xtuml');

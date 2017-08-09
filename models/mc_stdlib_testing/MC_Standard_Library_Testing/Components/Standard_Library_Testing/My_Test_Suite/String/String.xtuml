@@ -1,0 +1,329 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("dcb50286-e785-4295-a020-047c34df8086",
+	'String',
+	5,
+	'String',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("639712ad-6993-476e-9019-d768fc199ab1",
+	"dcb50286-e785-4295-a020-047c34df8086",
+	'Test_Integer',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'Assertion::Assert(value: STR::From_Integer(value: -1) == "-1", 
+				msg: "-1 converts to ''-1''");
+
+Assertion::Assert(value: STR::From_Integer(value: 0) == "0", 
+				msg: "0 converts to ''0''");
+			 
+Assertion::Assert(value: STR::From_Integer(value: 1) == "1", 
+				msg: "1 converts to ''1''");
+			 
+Assertion::Assert(value: STR::From_Integer(value: 1234567890) == "1234567890", 
+				msg: "1234567890 converts to ''1234567890''");
+			 
+Assertion::Assert(value: STR::From_Integer(value: -1234567890) == "-1234567890", 
+				msg: "-1234567890 converts to ''-1234567890''");
+
+//
+//
+//
+
+Assertion::Assert(value: STR::To_Integer(value: "-1") == -1, 
+				msg: "''-1'' converts to -1");
+
+Assertion::Assert(value: STR::To_Integer(value: "0") == 0, 
+				msg: "''0'' converts to 0");
+			 
+Assertion::Assert(value: STR::To_Integer(value: "1") == 1, 
+				msg: "''1'' converts to 1");
+			 
+Assertion::Assert(value: STR::To_Integer(value: "1234567890") == 1234567890, 
+				msg: "''1234567890'' converts to 1234567890");
+			 			 
+Assertion::Assert(value: STR::To_Integer(value: "-1234567890") == -1234567890, 
+				msg: "''-1234567890'' converts to -1234567890");
+
+//
+//
+//
+
+Assertion::Assert(value: STR::To_Integer(value: "0x0") == 0, 
+			 msg: "''0x0'' converts to 0");
+			 
+Assertion::Assert(value: STR::To_Integer(value: "0x1") == 1, 
+			 msg: "''0x1'' converts to 1");
+			 
+Assertion::Assert(value: STR::To_Integer(value: "0xabcdef") == 11259375, 
+			 msg: "''0xabcdef'' converts to 11259375");
+			 			 
+Assertion::Assert(value: STR::To_Integer(value: "0xABCDEF") == 11259375, 
+			 msg: "''0xABCDEF'' converts to 11259375");
+			 			 
+
+',
+	1,
+	'',
+	"6f00819a-cb9c-4cca-bac3-be3d0f680eff");
+INSERT INTO O_TFR
+	VALUES ("6f00819a-cb9c-4cca-bac3-be3d0f680eff",
+	"dcb50286-e785-4295-a020-047c34df8086",
+	'Test_Boolean',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'Assertion::Assert(value: STR::From_Boolean(value: true) == "true", 
+				msg: "true converts to ''true''");
+
+Assertion::Assert(value: STR::From_Boolean(value: false) == "false", 
+				msg: "false converts to ''false''");
+			 
+Assertion::Assert(value: STR::To_Boolean(value: "true") == true, 
+				msg: "''true'' converts to true");
+			 
+Assertion::Assert(value: STR::To_Boolean(value: "True") == true, 
+				msg: "''True'' converts to true");
+			 
+Assertion::Assert(value: STR::To_Boolean(value: "TruE") == true, 
+				msg: "''TruE'' converts to true");
+			 
+Assertion::Assert(value: STR::To_Boolean(value: "false") == false, 
+				msg: "''false'' converts to false");
+			 
+Assertion::Assert(value: STR::To_Boolean(value: "False") == false, 
+				msg: "''False'' converts to false");
+			 
+Assertion::Assert(value: STR::To_Boolean(value: "FalsE") == false, 
+				msg: "''FalsE'' converts to false");
+			 
+Assertion::Assert(value: STR::To_Boolean(value: "") == false, 
+				msg: "empty string converts to false");
+			 
+Assertion::Assert(value: STR::To_Boolean(value: "test") == false, 
+				msg: "''test'' converts to false");
+',
+	1,
+	'',
+	"58a8a118-ff48-435c-9c08-48c3cf5a4c45");
+INSERT INTO O_TFR
+	VALUES ("58a8a118-ff48-435c-9c08-48c3cf5a4c45",
+	"dcb50286-e785-4295-a020-047c34df8086",
+	'Test_Index',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'Assertion::Integer_Equal(actual: STR::Index(str: "some string", sub: "some", start: 0),
+						 expected: 0, 
+						 msg: "''some'' starts at index 0 in ''some string''");
+
+Assertion::Integer_Equal(actual: STR::Index(str: "some string", sub: "string", start: 0),
+						 expected: 5,
+						 msg: "''string'' starts at index 5 in ''some string''");
+
+Assertion::Integer_Equal(actual: STR::Index(str: "some string", sub: "some string", start: 0),
+						 expected: 0,
+						 msg: "''some string'' starts at index 0 in ''some string''");
+
+Assertion::Integer_Equal(actual: STR::Index(str: "some string", sub: "", start: 0),
+						 expected: 0,
+						 msg: "empty string starts at index 0 in ''some string''");
+
+Assertion::Integer_Equal(actual: STR::Index(str: "", sub: "", start: 0),
+						 expected: 0,
+						 msg: "empty string starts at index 0 in an empty string");
+
+Assertion::Integer_Equal(actual: STR::Index(str: "some", sub: "some string", start: 0),
+						 expected: -1,
+						 msg: "''some string'' is not in ''some''");
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("b3ad5481-55dc-4c16-8d00-bc85c77f5d43",
+	"dcb50286-e785-4295-a020-047c34df8086",
+	'Test_ASCII',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'Assertion::Assert(value: STR::From_ASCII_Code(code: 0) == "", 
+				msg: "ASCII code 0 converts to empty string");
+
+Assertion::Assert(value: STR::From_ASCII_Code(code: 32) == " ", 
+				msg: "ASCII code 32 converts to '' ''");
+
+Assertion::Assert(value: STR::From_ASCII_Code(code: 90) == "Z", 
+				msg: "ASCII code 90 converts to ''Z''");
+				
+Assertion::Assert(value: STR::From_ASCII_Code(code: 122) == "z", 
+				msg: "ASCII code 122 converts to ''z''");
+				
+Assertion::Assert(value: STR::From_ASCII_Code(code: 128) == "", 
+				msg: "ASCII code 128 converts to empty string");
+//
+//
+//
+
+Assertion::Assert(value: STR::To_ASCII_Code(str: "", index: 0) == 0, 
+				msg: "first ASCII code in an empty string is 0");
+
+Assertion::Assert(value: STR::To_ASCII_Code(str: "", index: 1) == 0, 
+				msg: "second ASCII code in an emptry string is 0");
+				
+Assertion::Assert(value: STR::To_ASCII_Code(str: "Test", index: 0) == 84, 
+				msg: "first ASCII code in ''Test'' is 84");
+				
+Assertion::Assert(value: STR::To_ASCII_Code(str: "Test", index: 1) == 101, 
+				msg: "second ASCII code in ''Test'' is 101");
+
+Assertion::Assert(value: STR::To_ASCII_Code(str: "Test", index: 2) == 115, 
+				msg: "third ASCII code in ''Test'' is 115");
+				
+Assertion::Assert(value: STR::To_ASCII_Code(str: "Test", index: 3) == 116, 
+				msg: "forth ASCII code in ''Test'' is 116");
+				',
+	1,
+	'',
+	"639712ad-6993-476e-9019-d768fc199ab1");
+INSERT INTO O_TFR
+	VALUES ("e857ee44-4bc2-4d07-ad3e-612b64c0eb46",
+	"dcb50286-e785-4295-a020-047c34df8086",
+	'Test_Unique_Id',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'create object instance inst of Unique_Id;
+
+str = STR::From_Unique_Id(value: inst.id);
+id = STR::To_Unique_Id(value: str);
+Assertion::Assert(value: id == inst.id, 
+			msg: "converting unique_id to string and back yield same value");
+
+//
+//
+//
+str = "a2fbf8e9-a8e7-459b-825a-fae58acf19b2";
+id = STR::To_Unique_Id(value: str);
+Assertion::Assert(value: STR::From_Unique_Id(value: id) == str, 
+			msg: "converting string to unique_id and back yield same value");
+
+//
+//
+//
+Assertion::Assert(value: STR::To_Unique_Id(value: str) == id, 
+			msg: "converting the same UUID string to unique_id twise yield same value");
+
+//
+//
+//
+null_string = "00000000-0000-0000-0000-000000000000";
+id = STR::To_Unique_Id(value: "malformed UUID");
+str = STR::From_Unique_Id(value: id);
+Assertion::Assert(value: null_string == str, 
+			msg: "converting malformed UUID string to unique_id and back again yield null uuid");
+
+			
+			',
+	1,
+	'',
+	"b3ad5481-55dc-4c16-8d00-bc85c77f5d43");
+INSERT INTO O_TFR
+	VALUES ("b021ef52-2f54-4309-9f84-6555f09219d8",
+	"dcb50286-e785-4295-a020-047c34df8086",
+	'Test_Length',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'Assertion::Assert(value: STR::Length(str: "") == 0, 
+				  msg: "The length of an empty string is zero");
+
+Assertion::Assert(value: STR::Length(str: "Test") == 4, 
+				  msg: "The length of ''Test'' is four");
+
+str = "";
+count = 0;
+while count < 100
+	str = str + "Test ";
+	count = count + 1;
+end while;
+
+Assertion::Assert(value: STR::Length(str: str) == 500, 
+				  msg: "The length of ''" + str + "'' is 500");
+',
+	1,
+	'',
+	"e857ee44-4bc2-4d07-ad3e-612b64c0eb46");
+INSERT INTO O_TFR
+	VALUES ("b74261ac-b354-42b7-921b-9551681fdfe2",
+	"dcb50286-e785-4295-a020-047c34df8086",
+	'Test_Replace',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'Assertion::Assert(value: STR::Replace(str: "Test", old: "T", new: "") == "est", 
+				  msg: "replacing ''T'' with the empty string in ''Test'' yeild ''est''");
+				  
+Assertion::Assert(value: STR::Replace(str: "Test", old: "Test", new: "") == "", 
+				  msg: "replacing ''Test'' with the empty string in ''Test'' yeild the empty string");
+
+Assertion::Assert(value: STR::Replace(str: "Test", old: "Test", new: "TESTING") == "TESTING", 
+				  msg: "replacing ''Test'' with ''TESTING'' in ''Test'' yeild ''TESTING''");
+				  
+Assertion::Assert(value: STR::Replace(str: "test", old: "t", new: "T") == "TesT", 
+				  msg: "replacing ''t'' with ''T'' in ''test'' yeild ''TesT''");
+				  
+Assertion::Assert(value: STR::Replace(str: "test", old: "p", new: "P") == "test", 
+				  msg: "replacing ''p'' with ''P'' in ''test'' yeild ''test''");
+				  
+Assertion::Assert(value: STR::Replace(str: "test", old: "t", new: "t") == "test", 
+				  msg: "replacing ''t'' with ''t'' in ''test'' yeild ''test''");
+				  
+',
+	1,
+	'',
+	"b021ef52-2f54-4309-9f84-6555f09219d8");
+INSERT INTO O_NBATTR
+	VALUES ("c3649806-539f-4e0c-8b86-1bc6ab928f06",
+	"dcb50286-e785-4295-a020-047c34df8086");
+INSERT INTO O_BATTR
+	VALUES ("c3649806-539f-4e0c-8b86-1bc6ab928f06",
+	"dcb50286-e785-4295-a020-047c34df8086");
+INSERT INTO O_ATTR
+	VALUES ("c3649806-539f-4e0c-8b86-1bc6ab928f06",
+	"dcb50286-e785-4295-a020-047c34df8086",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (2,
+	"dcb50286-e785-4295-a020-047c34df8086");
+INSERT INTO O_ID
+	VALUES (1,
+	"dcb50286-e785-4295-a020-047c34df8086");
+INSERT INTO O_ID
+	VALUES (0,
+	"dcb50286-e785-4295-a020-047c34df8086");
+INSERT INTO PE_PE
+	VALUES ("dcb50286-e785-4295-a020-047c34df8086",
+	1,
+	"cf3eb296-b101-4fad-84b0-98659d556061",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("cf3eb296-b101-4fad-84b0-98659d556061",
+	"00000000-0000-0000-0000-000000000000",
+	"84947f4f-ad1a-40b8-86b3-2e04afbe6a0c",
+	'My_Test_Suite',
+	'',
+	0,
+	'../My_Test_Suite.xtuml');

@@ -1,0 +1,80 @@
+-- BP 7.1.6 content: Package syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO EP_PKG
+	VALUES ("c4a088bb-2a82-463a-87e9-dbc906577e6d",
+	"00000000-0000-0000-0000-000000000000",
+	"84947f4f-ad1a-40b8-86b3-2e04afbe6a0c",
+	'Entry_Points',
+	'',
+	0);
+INSERT INTO GD_MD
+	VALUES ("ad8b98aa-f5e9-4dd5-80c2-54fefc0e8ca7",
+	112,
+	"c4a088bb-2a82-463a-87e9-dbc906577e6d",
+	108,
+	0,
+	0,
+	1,
+	1,
+	1,
+	12,
+	1,
+	0,
+	0,
+	0,
+	0,
+	0,
+	'',
+	'mc_stdlib_testing::MC_Standard_Library_Testing::Components::Standard_Library_Testing::Entry_Points');
+INSERT INTO DIM_DIA
+	VALUES ("ad8b98aa-f5e9-4dd5-80c2-54fefc0e8ca7",
+	'',
+	1.000000,
+	4000.000000,
+	3000.000000,
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO S_SYNC
+	VALUES ("0a57c67f-0438-4c47-8380-ddf8097f2db8",
+	"00000000-0000-0000-0000-000000000000",
+	'Execute',
+	'',
+	'Log::Configure(fd: STDOUT, level: Log_Level::Debug);
+Log::Info(msg: "Starting mc_stdlib_testing");
+
+create object instance test_Execution of Test_Execution;
+test_Execution.name = "mc_stdlib_testing";
+
+test_Execution.Schedule_My_Test_Suite();
+Execution::Dispatch(session_id: test_Execution.id);
+',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	1,
+	'');
+INSERT INTO PE_PE
+	VALUES ("0a57c67f-0438-4c47-8380-ddf8097f2db8",
+	1,
+	"c4a088bb-2a82-463a-87e9-dbc906577e6d",
+	"00000000-0000-0000-0000-000000000000",
+	1);
+INSERT INTO PE_PE
+	VALUES ("c4a088bb-2a82-463a-87e9-dbc906577e6d",
+	1,
+	"00000000-0000-0000-0000-000000000000",
+	"6ceb145f-2304-40c1-9b93-3ed586167071",
+	7);
+INSERT INTO C_C_PROXY
+	VALUES ("6ceb145f-2304-40c1-9b93-3ed586167071",
+	"00000000-0000-0000-0000-000000000000",
+	"00000000-0000-0000-0000-000000000000",
+	'Standard_Library_Testing',
+	'',
+	0,
+	"00000000-0000-0000-0000-000000000000",
+	0,
+	'',
+	'../Standard_Library_Testing.xtuml');
+INSERT INTO S_SYS_PROXY
+	VALUES ("84947f4f-ad1a-40b8-86b3-2e04afbe6a0c",
+	'mc_stdlib_testing',
+	1,
+	'../../../../mc_stdlib_testing.xtuml');

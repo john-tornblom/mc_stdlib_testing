@@ -1,0 +1,78 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("c619d000-d38f-499c-af3c-ed1fdd2f93db",
+	'Test_Result',
+	1,
+	'Test_Result',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("f30c6b0c-692b-4cf8-a99f-551ff7025a19",
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db");
+INSERT INTO O_BATTR
+	VALUES ("f30c6b0c-692b-4cf8-a99f-551ff7025a19",
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db");
+INSERT INTO O_ATTR
+	VALUES ("f30c6b0c-692b-4cf8-a99f-551ff7025a19",
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db",
+	"00000000-0000-0000-0000-000000000000",
+	'id',
+	'',
+	'',
+	'id',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000005",
+	'',
+	'');
+INSERT INTO O_NBATTR
+	VALUES ("c5589535-55f0-4d35-bf0e-0385b9a36529",
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db");
+INSERT INTO O_BATTR
+	VALUES ("c5589535-55f0-4d35-bf0e-0385b9a36529",
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db");
+INSERT INTO O_ATTR
+	VALUES ("c5589535-55f0-4d35-bf0e-0385b9a36529",
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db",
+	"f30c6b0c-692b-4cf8-a99f-551ff7025a19",
+	'filename',
+	'',
+	'',
+	'filename',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000004",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (2,
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db");
+INSERT INTO O_ID
+	VALUES (1,
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db");
+INSERT INTO O_OIDA
+	VALUES ("c5589535-55f0-4d35-bf0e-0385b9a36529",
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db",
+	1,
+	'filename');
+INSERT INTO O_ID
+	VALUES (0,
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db");
+INSERT INTO O_OIDA
+	VALUES ("f30c6b0c-692b-4cf8-a99f-551ff7025a19",
+	"c619d000-d38f-499c-af3c-ed1fdd2f93db",
+	0,
+	'id');
+INSERT INTO PE_PE
+	VALUES ("c619d000-d38f-499c-af3c-ed1fdd2f93db",
+	1,
+	"61e575cc-c53a-4db2-9439-4d960a7ca370",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("61e575cc-c53a-4db2-9439-4d960a7ca370",
+	"00000000-0000-0000-0000-000000000000",
+	"84947f4f-ad1a-40b8-86b3-2e04afbe6a0c",
+	'Unit_Test_Execution',
+	'',
+	0,
+	'../Unit_Test_Execution.xtuml');

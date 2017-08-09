@@ -1,0 +1,144 @@
+-- BP 7.1.6 content: ModelClass syschar: 3 persistence-version: 7.1.6
+
+INSERT INTO O_OBJ
+	VALUES ("175d7b12-8fd5-4a1c-aa22-4a35dc8b960b",
+	'File_System',
+	3,
+	'File_System',
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_TFR
+	VALUES ("c5de289b-d4cc-403d-8b41-c262e0bf0e5a",
+	"175d7b12-8fd5-4a1c-aa22-4a35dc8b960b",
+	'Test_Read',
+	'',
+	"ba5eda7a-def5-0000-0000-000000000000",
+	0,
+	'filename = FS::Mk_Temp(prefix: "", suffix: "");
+Assertion::String_Not_Equal(actual: filename,
+							unexpected: "",
+							msg: "creating a temp filename");
+
+Assertion::Is_True(value: FS::Exists(filename: filename),
+				   msg: "a new temp filename is created before being opened");
+
+//
+//
+//
+fd = FS::Open(filename: filename, mode: File_Mode::Write);
+Assertion::Integer_Not_Equal(actual: fd,
+							 unexpected: ILLEGAL_FILE_DESCRIPTOR,
+							 msg: "opening a temp file for writing returns a valid file descriptor");
+
+Assertion::Is_True(value: FS::Write(fd: fd, str: "test"),
+				   msg: "writing ''test'' to a write-only file descriptor return true");
+
+Assertion::String_Equal(actual: FS::Read(fd: fd, length: 1),
+						expected: "",
+						msg: "reading from a write-only file descriptor returns the empty string");
+
+Assertion::Is_True(value: FS::Close(fd: fd),
+				   msg: "closing a temp file opened for writing returns true");
+
+//
+//
+//
+fd = FS::Open(filename: filename, mode: File_Mode::Read);
+Assertion::Integer_Not_Equal(actual: fd,
+							 unexpected: ILLEGAL_FILE_DESCRIPTOR,
+							 msg: "opening a temp file for reading returns a valid file descriptor");
+
+Assertion::String_Equal(actual: FS::Read(fd: fd, length: 4),
+						expected: "test",
+						msg: "reading 4 characters from temp file returns the expected string");
+
+Assertion::Is_True(value: FS::Close(fd: fd),
+				   msg: "closing a temp file opened for reading returns true");
+
+
+//
+//
+//
+fd = FS::Open(filename: filename, mode: File_Mode::Append);
+Assertion::Integer_Not_Equal(actual: fd,
+							 unexpected: ILLEGAL_FILE_DESCRIPTOR,
+							 msg: "opening a temp file for appending returns a valid file descriptor");
+
+Assertion::Is_True(value: FS::Write_Line(fd: fd, str: "test"),
+				   msg: "appending the line ''test'' to temp file return true");
+
+Assertion::Is_True(value: FS::Close(fd: fd),
+				   msg: "closing a temp file opened for appending returns true");
+
+//
+//
+//
+fd = FS::Open(filename: filename, mode: File_Mode::Read);
+Assertion::Integer_Not_Equal(actual: fd,
+							 unexpected: ILLEGAL_FILE_DESCRIPTOR,
+							 msg: "opening a temp file for reading a line returns a valid file descriptor");
+
+Assertion::String_Equal(actual: FS::Read_Line(fd: fd),
+						expected: "testtest",
+						msg: "reading a line previously written to a temp file returns the expected value");
+
+Assertion::Is_True(value: FS::Close(fd: fd), 
+				   msg: "closing a temp file opened for reading a line returns true");
+
+
+//
+//
+//
+Assertion::Is_True(value: FS::Exists(filename: filename),
+				  msg: "a temp file previously written to exists");
+
+Assertion::Is_True(value: FS::Remove(filename: filename),
+				   msg: "removing an existing file returns true");
+
+Assertion::Is_False(value: FS::Exists(filename: filename),
+				  msg: "a removed file does not exists");
+',
+	1,
+	'',
+	"00000000-0000-0000-0000-000000000000");
+INSERT INTO O_NBATTR
+	VALUES ("ac1d9661-ac88-4654-8043-692d3596a8a8",
+	"175d7b12-8fd5-4a1c-aa22-4a35dc8b960b");
+INSERT INTO O_BATTR
+	VALUES ("ac1d9661-ac88-4654-8043-692d3596a8a8",
+	"175d7b12-8fd5-4a1c-aa22-4a35dc8b960b");
+INSERT INTO O_ATTR
+	VALUES ("ac1d9661-ac88-4654-8043-692d3596a8a8",
+	"175d7b12-8fd5-4a1c-aa22-4a35dc8b960b",
+	"00000000-0000-0000-0000-000000000000",
+	'current_state',
+	'',
+	'',
+	'current_state',
+	0,
+	"ba5eda7a-def5-0000-0000-000000000006",
+	'',
+	'');
+INSERT INTO O_ID
+	VALUES (2,
+	"175d7b12-8fd5-4a1c-aa22-4a35dc8b960b");
+INSERT INTO O_ID
+	VALUES (1,
+	"175d7b12-8fd5-4a1c-aa22-4a35dc8b960b");
+INSERT INTO O_ID
+	VALUES (0,
+	"175d7b12-8fd5-4a1c-aa22-4a35dc8b960b");
+INSERT INTO PE_PE
+	VALUES ("175d7b12-8fd5-4a1c-aa22-4a35dc8b960b",
+	1,
+	"cf3eb296-b101-4fad-84b0-98659d556061",
+	"00000000-0000-0000-0000-000000000000",
+	4);
+INSERT INTO EP_PKG_PROXY
+	VALUES ("cf3eb296-b101-4fad-84b0-98659d556061",
+	"00000000-0000-0000-0000-000000000000",
+	"84947f4f-ad1a-40b8-86b3-2e04afbe6a0c",
+	'My_Test_Suite',
+	'',
+	0,
+	'../My_Test_Suite.xtuml');
