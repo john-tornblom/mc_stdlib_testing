@@ -64,7 +64,7 @@ Assertion::Integer_Not_Equal(actual: fd,
 							 unexpected: ILLEGAL_FILE_DESCRIPTOR,
 							 msg: "opening a temp file for appending returns a valid file descriptor");
 
-Assertion::Is_True(value: FS::Write_Line(fd: fd, str: "test"),
+Assertion::Is_True(value: FS::Write_Line(fd: fd, str: "TEST"),
 				   msg: "appending the line ''test'' to temp file return true");
 
 Assertion::Is_True(value: FS::Close(fd: fd),
@@ -79,7 +79,7 @@ Assertion::Integer_Not_Equal(actual: fd,
 							 msg: "opening a temp file for reading a line returns a valid file descriptor");
 
 Assertion::String_Equal(actual: FS::Read_Line(fd: fd),
-						expected: "testtest",
+						expected: "testTEST",
 						msg: "reading a line previously written to a temp file returns the expected value");
 
 Assertion::Is_True(value: FS::Close(fd: fd), 
